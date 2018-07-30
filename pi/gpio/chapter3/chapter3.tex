@@ -1,0 +1,116 @@
+%The Raspberry Pi has 40 GPIO pins \cite{gpio_pins}, as shown in the figure below.  The Wiring Pi \cite{wiringpi}  GPIO access library allows for an Arduino style access to the GPIO pins for input/output. The pins 0-6 and 10-14 can be used for digital I/O.
+%\end{center}
+%%Out of these, some are  ground pins, some are 5$V$ and 3.3$V$ pins and others input/output pins.  Out of these input/output  analog input pins A0-A3 and digital pins D1-D13 that can be used for both input as well as output. It also has two power pins that can generate 3.3$V$ and 5$V$.  In the following exercises, only the GND, 5$V$ and digital pins will be used.
+%%
+%%
+
+%\subsection{GPIO pin connection}
+%Open the blink.c program arduino software.  Check if the ports show Arduino Uno and click the appropriate button.  Open Examples$\rightarrow$Basics$\rightarrow$Blink.  
+
+
+%
+\subsection{Counting Decoder}
+%
+Table \ref{table:counter_decoder} represents the system that increments the numbers 0-8 by 1 and resets the number 9 to 0. Such a table is known as a truth table, where $W,X,Y,Z$ are the inputs
+and $A,B,C,D$ are the outputs. 
+Note that  $D = 1$ for the inputs $0111$ and $1000$.  Using {\em boolean} logic,
+%
+\begin{equation}
+\label{bool_logic}
+D = WXYZ^{'} + W^{'}X^{'}Y^{'}Z
+\end{equation}
+%
+Note that $0111$ results in the expression $WXYZ^{'}$ and $1000$ yields $W^{'}X^{'}Y^{'}Z$. 
+\begin{problem}
+	\label{counter_dec}
+Write the boolean logic functions for $A,B,C$ in terms of $W,X,Y,Z$.
+\end{problem}
+%%
+		\input{./chapter3/tables/counter_decoder}
+%\onecolumn
+%%\setcounter{problem}{6}  
+%\input{./chapter3/tables/counter_decoder}
+%%
+%%\setcounter{problem}{0}  
+%\twocolumn
+
+%\begin{table}
+%\end{table}
+The $\&\&$ operand is used for the boolean AND (multiplication) operation, the $||$ operand is used for the OR (addition) operation and the ! operand is used for the NOT ($^{'}$) operation in Arduino code.  For example, the expression for \eqref{bool_logic} in Arudino is
+\begin{verbatim}
+D = (W&&X&&Y&&!Z)||(!W&&!X&&!Y&&Z);
+\end{verbatim}
+%
+\begin{problem}
+Write the code for the outputs $A,B,C$ and verify if your logic is correct by observing the output on the seven segment display.
+\end{problem}
+%
+\subsection{Display Decoder}
+%
+\begin{problem}
+Now write the truth table for the seven segment display decoder (IC 7447).  The inputs will be $A,B,C,D$ and the outputs will be $a,b,c,d,e,f,g$.
+\end{problem}
+%
+\begin{problem}
+\label{seven_seg_disp_logic}
+Obtain the logic functions for outputs $a,b,c,d,e,f,g$ in terms of the inputs $A,B,C,D$.
+\end{problem}
+\begin{problem}
+Disconnect the Pi from IC 7447 and connect the pins 0-6 in Fig. \ref{fig_1_3b} in the Pi directly to the seven segment display.
+\end{problem}
+\begin{problem}
+Write a new program to implement the logic in Problem \ref{seven_seg_disp_logic} and observe the output in the display.  You have designed the logic for IC 7447!
+\end{problem}
+\begin{problem}
+Now include your counting decoder program in the  display decoder program
+and see if the display shows the consecutive number.
+\end{problem}
+\subsection{Software Counter}
+%
+\begin{problem}
+Connect pin 10 to the dot pin of the display and execute the following program.  What do you observe?
+\end{problem}
+%
+\lstinputlisting{./codes/blink.c}
+%
+\begin{problem}
+A decade counter counts the numbers from 0-9 and then resets to 0.  Suitable modify the above program to obtain a decade counter.
+\end{problem}
+
+%\begin{figure*}
+%\setcounter{problem}{1}  
+%\onecolumn
+		%\input{./chapter3/tables/counter_decoder}
+%\twocolumn
+%\setcounter{problem}{8}  
+%\end{figure*}
+
+%%\begin{problem}
+%%Generate the boolean functions for the segments $a-f$ using the table in Problem \ref{bcd_ss}.  For example, the function for $a$ is obtained from the table as
+%%\begin{equation}
+%%a=\bar{D}\bar{C}\bar{B}A+\bar{D}C\bar{B}\bar{A}
+%%\label{boolean}
+%%\end{equation}
+%%\end{problem}
+%%%
+%%\begin{problem}
+	%%\label{counter_dec}
+%%Write functions for $A,B,C,D$ in Arduino using the following table and verify using the Arduino driven display.
+		%%\input{counter_decoder}
+%%\end{problem}
+%%\begin{problem}
+	%%Write a module for decimal to binary conversion
+	%%according to the example given below
+	%%\input{conversion}
+	%%%
+	%%$N \% 2$ gives the remainder and $N/2$ gives the quotient
+%%	and use it in the above code so that decimal values are given as input in the program and observed as output in the display. Note that the following code
+%%	\begin{verbatim}
+%%	a % b
+%%	\end{verbatim}
+%%	can be used to obtain the remainder when a is divided by b and
+%%	\begin{verbatim}
+%%	a/b
+%%	\end{verbatim}
+%%	gives the quotient.
+%%\end{problem}

@@ -1,0 +1,12 @@
+\contentsline {section}{\numberline {1}Display Control through Hardware }{1}
+\contentsline {subsection}{\numberline {1.1}Powering the Display}{1}
+\contentsline {subsection}{\numberline {1.2}Controlling the Display}{2}
+\contentsline {section}{\numberline {2}Software Setup}{3}
+\contentsline {section}{\numberline {3}Display Control through Software }{3}
+\contentsline {section}{\numberline {4}Combinational Logic}{3}
+\contentsline {subsection}{\numberline {4.1}Counting Decoder}{3}
+\contentsline {subsection}{\numberline {4.2}Display Decoder}{4}
+\contentsline {subsection}{\numberline {4.3}Software Counter}{4}
+\contentsline {section}{\numberline {5}Sequential Logic}{4}
+\contentsline {subsection}{\numberline {5.1}Decade Counter through Flip Flops}{4}
+\contentsline {section}{References}{5}

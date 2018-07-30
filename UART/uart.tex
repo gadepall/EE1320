@@ -1,0 +1,443 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+%
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
+\usepackage{setspace}
+\usepackage{gensymb}
+\usepackage{xcolor}
+\usepackage{caption}
+%\usepackage{subcaption}
+%\doublespacing
+\singlespacing
+
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+%\usepackage{relsize}
+\usepackage[cmex10]{amsmath}
+\usepackage{mathtools}
+%\usepackage{amsthm}
+%\interdisplaylinepenalty=2500
+%\savesymbol{iint}
+%\usepackage{txfonts}
+%\restoresymbol{TXF}{iint}
+%\usepackage{wasysym}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{mathtools}
+\usepackage{subfig}
+
+%\usepackage{xtab}
+\usepackage{longtable}
+\usepackage{multirow}
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{iithtlc}
+%\usepackage[framemethod=tikz]{mdframed}
+\usepackage{listings}
+\usepackage{listings}
+    \usepackage[latin1]{inputenc}                                 %%
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+  %optionally (for landscape tables embedded in another document): %%
+    \usepackage{lscape}     
+\usepackage[american]{circuitikz}
+
+
+%\usepackage{stmaryrd}
+
+
+%\usepackage{wasysym}
+%\newcounter{MYtempeqncnt}
+\DeclareMathOperator*{\Res}{Res}
+%\renewcommand{\baselinestretch}{2}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+%\lstset{
+%language=C,
+%frame=single, 
+%breaklines=true
+%}
+
+%\lstset{
+	%%basicstyle=\small\ttfamily\bfseries,
+	%%numberstyle=\small\ttfamily,
+	%language=Octave,
+	%backgroundcolor=\color{white},
+	%%frame=single,
+	%%keywordstyle=\bfseries,
+	%%breaklines=true,
+	%%showstringspaces=false,
+	%%xleftmargin=-10mm,
+	%%aboveskip=-1mm,
+	%%belowskip=0mm
+%}
+
+%\surroundwithmdframed[width=\columnwidth]{lstlisting}
+\def\inputGnumericTable{}                                 %%
+\lstset{
+language=C,
+frame=single, 
+breaklines=true
+}
+ 
+
+\begin{document}
+%
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+%\newtheorem{algorithm}{Algorithm}[section]
+%\newtheorem{cor}{Corollary}
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{ieeetr}
+
+\providecommand{\nCr}[2]{\,^{#1}C_{#2}} % nCr
+\providecommand{\nPr}[2]{\,^{#1}P_{#2}} % nPr
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E\left[ #1 \right]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+%\numberwithin{equation}{subsection}
+\numberwithin{equation}{problem}
+%\numberwithin{problem}{subsection}
+%\numberwithin{definition}{subsection}
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
+
+\let\StandardTheFigure\thefigure
+%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
+\renewcommand{\thefigure}{\theproblem}
+
+
+%\numberwithin{figure}{subsection}
+
+%\numberwithin{equation}{subsection}
+%\numberwithin{equation}{section}
+\numberwithin{equation}{problem}
+%\numberwithin{problem}{subsection}
+\numberwithin{problem}{section}
+%%\numberwithin{definition}{subsection}
+%\makeatletter
+%\@addtoreset{figure}{problem}
+%\makeatother
+\makeatletter
+\@addtoreset{table}{problem}
+\makeatother
+
+\let\StandardTheFigure\thefigure
+\let\StandardTheTable\thetable
+%%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
+%\renewcommand{\thefigure}{\theproblem}
+
+%%\numberwithin{figure}{section}
+
+%%\numberwithin{figure}{subsection}
+
+
+
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+
+\vspace{3cm}
+
+\title{ 
+	\logo{
+UART Interfacing through
+RaspberryPi and Arduino
+	}
+}
+
+
+
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+%\title{Digital Band Pass Filter design}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+
+\author{Prashanth Kumar Aleshvaram and G V V Sharma$^{*}$% <-this % stops a space
+\thanks{*The author is with the Department
+of Electrical Engineering, Indian Institute of Technology, Hyderabad
+502285 India e-mail:  gadepall@iith.ac.in. All content in this manual is released under GNU GPL.  Free and open source.}% <-this % stops a space
+%\thanks{J. Doe and J. Doe are with Anonymous University.}% <-this % stops a space
+%\thanks{Manuscript received April 19, 2005; revised January 11, 2007.}}
+}
+% note the % following the last \IEEEmembership and also \thanks - 
+% these prevent an unwanted space from occurring between the last author name
+% and the end of the author line. i.e., if you had this:
+% 
+% \author{....lastname \thanks{...} \thanks{...} }
+%                     ^------------^------------^----Do not want these spaces!
+%
+% a space would be appended to the last name and could cause every name on that
+% line to be shifted left slightly. This is one of those "LaTeX things". For
+% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
+% "AB" then you have to do: "\textbf{A}\textbf{B}"
+% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+
+
+
+% The paper headers
+%\markboth{Journal of \LaTeX\ Class Files,~Vol.~6, No.~1, January~2007}%
+%{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Journals}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+% 
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer review papers.                   ***
+% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
+% you desire.
+
+
+
+
+% If you want to put a publisher's ID mark on the page you can do it like
+% this:
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2007 IEEE}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark.
+
+
+
+% make the title area
+\maketitle
+
+\tableofcontents
+
+\bigskip
+
+\begin{abstract}
+%\boldmath
+The process of serial communication between Arduino and RaspberryPi is explained by calculating the value of an unkown resistance in Arduino and 
+sending the value to RaspberryPi through UART pins.
+% and the Kaiser window is used for the FIR filter.
+\end{abstract}
+% IEEEtran.cls defaults to using nonbold math in the Abstract.
+% This preserves the distinction between vectors and scalars. However,
+% if the journal you are submitting to favors bold math in the abstract,
+% then you can use LaTeX's standard command \boldmath at the very start
+% of the abstract to achieve this. Many IEEE journals frown on math
+% in the abstract anyway.
+
+% Note that keywords are not normally used for peerreview papers.
+%\begin{IEEEkeywords}
+%Cooperative diversity, decode and forward, piecewise linear
+%\end{IEEEkeywords}
+
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+%\newpage
+%\section{Component Pin Diagrams}
+%%
+%\input{chapter1}
+%
+
+%\newpage
+
+\section{COMPONENTS}
+The component details  are available in Table \ref{table:specs}.
+\input{./figs/specs.tex}
+\renewcommand{\thetable}{\theproblem}
+%\begin{enumerate}
+%
+%\item Sampling rate(\textit{F$_s$})=48 kHz
+%
+%\item Pass band tolerance($\delta_1$) and stop band tolerance($\delta_2$) are equal.
+% 
+% i.e. $\delta_1$=$\delta_2$=$\delta$=0.15
+% 
+%\item Filter pass band range is 6 kHz-7.2 kHz.
+%
+% i.e. (\textit{F$_{p1}$})=7.2 kHz and (\textit{F$_{p2}$})=6 kHz
+%\item Transition band ($\Delta\textit{F}$)= 0.3 kHz. Hence filter stop band range is 5.7 kHz-7.5 kHz.
+%
+% i.e. (\textit{F$_{s1}$})=7.5 kHz and (\textit{F$_{s2}$})=5.7 kHz
+%\end{enumerate}
+\section{Enabling UART in RaspberryPi}
+\begin{problem}
+Connect the RaspberryPi to the desktop and power it on. 
+%Make sure that box is open and able to use GPIO pins
+\end{problem}
+
+\begin{problem}
+Open 
+\end{problem}
+\begin{lstlisting}
+sudo nano /boot/cmdline.txt
+\end{lstlisting}
+and remove  \textbf{console=serial0,115200} or \textbf{console=ttyAMA0,115200}.  Don't delete anything else in the file. \textbf{Ctrl+X} and exit.
+\begin{problem}
+In order to enable GPIO serial port, 
+\begin{lstlisting}
+sudo nano /boot/config.txt
+\end{lstlisting}
+and add 
+\begin{lstlisting}
+enable_uart=1
+\end{lstlisting}
+at the end of the file.  Reboot.
+\end{problem}
+Use \textbf{/dev/ttyS0} in any code which accesses the Serial Port of RaspberryPi.
+\section{Measuring the Resistance}
+
+\begin{problem}
+Connect the 5V pin of the Arduino to
+an extreme pin of the Breadboard shown in Fig. \ref{fig:breadboard}.
+Let this pin be Vcc.
+\end{problem}
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{./figs/breadboard.eps}
+\caption{Breadboard}
+\label{fig:breadboard}
+\end{figure}
+%
+\begin{problem}
+Connect the GND pin of the Arduino
+to the opposite extreme pin of the Breadboard.
+\end{problem}
+\begin{problem}
+Let $R_{1}$ be the known resistor and $R_{2}$
+be the unknown resistor. Connect $R_{1}$ and $R_{2}$ in series such that $R_{1}$ is connected to GND and $R_{2}$
+is connected to Vcc as in Fig. \ref{fig:rc}
+% Refer to Fig
+\end{problem}
+\begin{figure}[!h]
+\resizebox {\columnwidth} {!} {
+%\input{./figs/collpits.tex}
+\input{./figs/vrr.tex}
+}
+%\centering
+%\includegraphics[width=\columnwidth]{./figs/rc.eps}
+\caption{}
+\label{fig:rc}
+\end{figure}
+\begin{problem}
+Connect the junction between the two
+resistors to the A0 pin on the Arduino.
+\end{problem}
+\begin{problem}
+Connect the arduino to the RaspberryPi so
+that it is powered.
+\end{problem}
+\begin{problem}
+Open the Arduino IDE and type the
+following code. Open the serial monitor to view
+the resistance.
+\end{problem}
+
+\solution
+\lstinputlisting{./codes/uart_resi.ino}
+
+\section{UART Communication}
+The Arduino transmitting the resistance through it's serial port.
+\begin{problem}
+Connect the Pin 6 (not GPIO 6) of Pi to the GND pin of the Arduino.
+\end{problem}
+\begin{problem}
+Connect GPIO 16 pin (UART $R_{x}$) of Pi to the $T_{x}$ pin of the Arduino.
+\end{problem}
+\begin{problem}
+Install the python serial package 
+\begin{lstlisting}
+sudo apt-get install python-serial
+\end{lstlisting}
+\end{problem}
+\begin{problem}
+Open a text editor and type the
+following code. Save it as \textbf{filename.py}.
+\end{problem}
+\solution
+\lstinputlisting{./codes/write.py}
+\begin{problem}
+Run the above code using the following command.  You should see the resistance value displayed on the terminal. 
+\begin{lstlisting}
+python filename.py
+ \end{lstlisting}
+\end{problem}
+
+\end{document}
+

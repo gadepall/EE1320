@@ -1,0 +1,7 @@
+\contentsline {section}{\numberline {1}Single Slave}{1}
+\contentsline {subsection}{\numberline {1.1}Configuring Arduino as slave}{1}
+\contentsline {subsection}{\numberline {1.2}On RaspberryPi}{1}
+\contentsline {subsection}{\numberline {1.3}Connecting RaspberryPi to Arduino}{2}
+\contentsline {subsection}{\numberline {1.4}Hardware Setup}{2}
+\contentsline {subsection}{\numberline {1.5}RaspberryPi as Master}{2}
+\contentsline {section}{\numberline {2}Multiple Slaves}{3}

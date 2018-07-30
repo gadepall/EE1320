@@ -1,0 +1,25 @@
+%\documentclass{article}
+%\usepackage[american]{circuitikz}
+%\begin{document}
+\begin{circuitikz}%[scale=2]
+    \def\xPortLeft{0}
+    \def\yTerminalBottom{0}
+    \def\yL{1.5}
+    \def\xL{1}
+    \def\xR{1.75}
+    \def\xC{2.25}
+    \def\xPortRight{3.5}
+    % left loop
+    \draw                               (\xPortLeft,\yL)
+            to[R=$R_1 (known)$, o-]     (\xR, \yL)
+            to[short]                   (\xC,\yL)
+            to[R=$R_2 (unknown)$,*-*]   (\xC,\yTerminalBottom)
+            to[short]                   (\xPortLeft,\yTerminalBottom)
+            to[open, v<=$V_{CC}$,o-o]   (\xPortLeft,\yL);
+    % right branch
+    \draw                               (\xC,\yL)
+            to[short]                   (\xPortRight,\yL)
+            to[open,v^=$A3$,o-o]   (\xPortRight,\yTerminalBottom)
+            to[short]                   (\xC,\yTerminalBottom);
+\end{circuitikz}
+%\end{document}

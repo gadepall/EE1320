@@ -1,0 +1,30 @@
+
+\begin{problem}
+Connect the A-D pins of the 7447 IC  in Fig. \ref{fig_1_9} to the GPIO pins  0-3 of the Pi shown in Figs. \ref{fig_1_3a} and \ref{fig_1_3b}.
+\end{problem}	
+%
+\begin{problem}
+Execute the following code using the following commands:
+\\
+gcc -Wall -o test bcd\_seven.c -lwiringPi
+\\
+sudo ./test
+\\
+What do you observe?
+\lstinputlisting{./codes/bcd_seven.c}
+\end{problem}
+\begin{problem}
+Now generate the numbers 0-9 by modifying the above program.
+\end{problem}
+\begin{problem}
+After the following line in the previous code,
+\begin{verbatim}
+int main (void) {
+\end{verbatim}
+you can define integer variables as
+\begin{verbatim}
+int A = 0;
+\end{verbatim}	
+where the variable A is defined to be an integer and given the value 0.  Define variables A,B,C,D as 0 or 1 and use the digitalWrite() command as in the earlier code to generate the numbers 0-9.
+\end{problem}
+%%
