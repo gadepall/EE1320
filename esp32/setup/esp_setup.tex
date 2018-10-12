@@ -475,28 +475,21 @@ sudo pip install adafruit-ampy
 \item Download the latest Arduino IDE from \href{https://www.arduino.cc/en/Main/Software}{https://www.arduino.cc/en/Main/Software}
 \item For making the ESP32 board visible in the Arduino IDE, the following instructions have to be executed.  Make sure that you are doing this using a downloaded IDE.
 \begin{lstlisting}
+sudo apt-get install python-serial && \
+mkdir -p ~/Arduino/hardware/espressif && \
 cd ~/Arduino/hardware/espressif && \
 git clone https://github.com/espressif/arduino-esp32.git esp32 && \
 cd esp32 && \
 git submodule update --init --recursive && \
 cd tools && \
-python get.py
+python get.py && \
+wget https://github.com/gadepall/resources/raw/master/esp32/xtensa-toolchain-rpi.zip && \
+unzip xtensa-toolchain-rpi.zip
 \end{lstlisting}
+
 
 \end{enumerate}
 \section{XTENSA for RPI 3}
-Download the {\em xtensa} library for esp32 from
-\href{http://tlc.iith.ac.in/resources/xtensa-rpi.7z}{http://tlc.iith.ac.in/resources/xtensa-rpi.7z}
-or
-\href{http://tlc.iith.ac.in/resources/xtensa-toolchain-rpi.zip}{http://tlc.iith.ac.in/resources/xtensa-toolchain-rpi.zip}
-%\begin{lstlisting}
-%https://drive.google.com/drive/folders/0Bz7Qo_vFhiBmVFYyQlA3ZWxDZ0U?usp=sharing
-%\end{lstlisting}
-and extract it to 
-\begin{lstlisting}
-/home/pi/Arduino/hardware/espressif/esp32/tools 
-\end{lstlisting}
-directory.
 You can also build the xtensa library through the following commands
 \begin{lstlisting}
 sudo apt-get install gawk gperf grep gettext automake bison flex texinfo help2man libtool libtool-bin git wget make libncurses-dev python python-serial python-dev python-pip
@@ -513,7 +506,8 @@ chmod -R u+w builds/xtensa-esp32-elf
 \end{lstlisting}
 \section{Blink Program}
 \begin{enumerate}
-\item Connect the ESP 32 to the computer.
+\item Connect the ESP 32 to the computer and select the appropriate port.
+\item Select Tools$->$Board$->$ESP 32 DEV MODULE
 \item Run the following code.  You should see the onboard LED blinking.
 \lstinputlisting{./codes/hello/hello.ino}
 \end{enumerate}
